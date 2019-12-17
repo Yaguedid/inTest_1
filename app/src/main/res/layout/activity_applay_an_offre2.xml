@@ -1,0 +1,661 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:background="@drawable/gradientbackground"
+
+        >
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/back_icon"
+            >
+
+        </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/Company_logo"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/exemple_pic"
+                />
+
+            <TextView
+                android:id="@+id/CompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:text="IBM"
+                android:textColor="#fff"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_above="@id/footer2"
+        android:background="#AAebebe0"
+
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="3dp"
+                android:padding="10dp"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="3dp"
+                card_view:cardUseCompatPadding="true"
+
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:weightSum="100">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Emploer_OffreTittleId"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="100"
+                            android:fontFamily="@font/myriadpro_semibold"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:text="Offer title"
+                            android:textColor="#455454"
+                            android:textSize="15dp"
+                            android:textAlignment="center"
+                            ></TextView>
+
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+                           android:id="@+id/cityOffer"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="100"
+                            android:gravity="center_vertical"
+                            android:text="ville"
+                            android:paddingLeft="5dp"
+                            android:textColor="#000"
+                            android:textSize="15dp"
+                            android:textAlignment="center"
+
+                            ></TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+                            android:id="@+id/periode"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="100"
+                            android:gravity="center_vertical"
+                            android:text="periode"
+                            android:paddingLeft="5dp"
+                            android:textColor="#000"
+                            android:textSize="15dp"
+                            android:textAlignment="center"
+
+                            ></TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="45"
+                            android:fontFamily="@font/myriadpro_semibold"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:text="Release Date"
+                            android:textAlignment="center"
+                            android:textColor="#455454"
+                            android:textSize="15dp"
+
+                            ></TextView>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="45"
+                            android:fontFamily="@font/myriadpro_semibold"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textAlignment="center"
+                            android:text="Start date"
+                            android:textColor="#455454"
+                            android:textSize="15dp"
+
+                            ></TextView>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/releaseDate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="45"
+                            android:fontFamily="@font/myriadpro_semibold"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:hint="release date"
+                            android:textAlignment="center"
+                            android:textColor="#455454"
+                            android:textSize="15dp"
+
+                            ></TextView>
+
+                        <TextView
+                            android:id="@+id/startdate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="45"
+                            android:fontFamily="@font/myriadpro_semibold"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textAlignment="center"
+                            android:hint="Start date"
+                            android:textColor="#455454"
+                            android:textSize="15dp"
+
+                            ></TextView>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:padding="10dp"
+
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="100"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Offer details"
+                        android:textStyle="bold"
+                        android:textColor="#341825"
+                        android:layout_marginBottom="10dp"
+
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/Employer_OfferBodyId"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="100"
+                            android:text="details"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:textSize="15dp"
+
+                            android:fontFamily="@font/myriadpro_semibold"
+                            ></TextView>
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:padding="10dp"
+
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="100"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="9"
+                            android:src="@drawable/skill"
+                            android:gravity="center_vertical"
+                            android:padding="12dp"
+
+
+
+                            ></ImageView>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:text="Skills required"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="9"
+                            android:src="@drawable/skill"
+                            android:gravity="center_vertical"
+                            />
+
+                        <TextView
+                            android:id="@+id/HardSkills"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="50"
+                            android:text="java \nandroid"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="9"
+                            android:src="@drawable/paid_icon"
+                            android:gravity="center_vertical"
+                            android:padding="12dp"
+
+
+
+                            ></ImageView>
+
+                        <TextView
+                            android:id="@+id/paidOrNot"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:text="Paid"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:padding="10dp"
+
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="100"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="About the Company"
+                        android:textStyle="bold"
+                        android:textColor="#341825"
+                        android:layout_marginBottom="10dp"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/aboutCompany"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="100"
+                            android:text="about"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:textSize="15dp"
+
+                            android:fontFamily="@font/myriadpro_semibold"
+                            ></TextView>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:padding="10dp"
+
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="100"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Informations pour Postulation"
+                        android:textStyle="bold"
+                        android:textColor="#341825"
+                        android:layout_marginBottom="10dp"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/UplodCv_BtnId"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="100"
+                            android:text="Telecharger votre cv"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:padding="10dp"
+                            android:textSize="15dp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/myriadpro_semibold"
+                            ></Button>
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/footer2"
+
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <Button
+                android:id="@+id/applay_Btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="apply now"
+                android:textColor="#fff"
+                android:background="#ff9900"
+                ></Button>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>
