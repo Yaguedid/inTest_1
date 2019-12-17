@@ -127,30 +127,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
 
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="100"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal"
-                    android:layout_margin="20dp"
-                    android:background="#AAb8b894"
-                    >
-                    <EditText
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:id="@+id/id_NameCompany"
-                        android:hint="nom entreprise"
-                        android:textColor="#000"
-                        android:textStyle="bold|italic"
-                        android:background="@android:color/transparent"
-                        />
-
-                </LinearLayout>
-            </TableRow>
+                />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -188,7 +165,107 @@
 
                 </LinearLayout>
             </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
 
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:weightSum="100"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="50"
+                        android:layout_height="wrap_content"
+                        android:text="payé"
+                        android:layout_marginLeft="20dp"
+
+                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="20"
+                        android:weightSum="100"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:text="oui"
+                            android:textAlignment="center"
+                            ></TextView>
+                        <CheckBox android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="50"
+                            android:id="@+id/yesPaid"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="20"
+                        android:weightSum="100"
+                        android:orientation="horizontal"
+                        />
+
+                </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:weightSum="100"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="30"
+                        android:layout_height="match_parent"
+                        android:text="Commencer a"
+                        android:gravity="center"
+                        />
+
+                  <Button
+                      android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="20"
+                      android:text="jour"
+                      ></Button>
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="20"
+                        android:text="mois"
+                        ></Button>
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="25"
+                        android:text="annee"
+                        ></Button>
+                </LinearLayout>
+            </TableRow>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

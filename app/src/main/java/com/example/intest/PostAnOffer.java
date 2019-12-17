@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +31,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -49,6 +54,7 @@ public class PostAnOffer extends AppCompatActivity {
     public List<Integer> mPeriodsItems = new ArrayList<>();
     public List<String> periodeList;
     public List<String> citiesList;
+
         /*----  Domaine ----*/
         TextView domaineItemSelected;
         Button domaineItemsBtn;
@@ -65,6 +71,9 @@ public class PostAnOffer extends AppCompatActivity {
         TextView skillsItemSelected;
         Button skillsItemsBtn;
         String[] skillsListItems;
+    CheckBox yesPaid;
+    String StartDate="01 junnary 2020";
+    SimpleDateFormat df;
         /* -- poustuler btn --*/
         private Button poustulerBtn;
         /* -- title offre --*/
@@ -95,6 +104,7 @@ setAdds();
         periodeList=new ArrayList<>();
         citiesList=new ArrayList<>();
         database = FirebaseDatabase.getInstance();
+       df = new SimpleDateFormat("dd-MMM-yyyy");
 /****************************get offer id ******************/
 
 offerIdRef = database.getReference("OfferIdNumber");
@@ -120,8 +130,9 @@ userinfo=getSharedPreferences("userinfos", MODE_PRIVATE);
 
 public void instanciateViews()
 {
-    CompanyName=findViewById(R.id.id_NameCompany);
-    CompanyNameText=CompanyName.getText().toString().trim();
+  //  CompanyName=findViewById(R.id.id_NameCompany);
+   // CompanyNameText=CompanyName.getText().toString().trim();
+    yesPaid=findViewById(R.id.yesPaid);
 
     cityItemSelected=findViewById(R.id.id_TextVillePrefere);
     periodeItemSelected=findViewById(R.id.id_TextPeriodeStage);
@@ -231,7 +242,11 @@ OfferDetailtsView=findViewById(R.id.offerBody);
         @Override
         public void onClick(View v) {
 
-            postuler();
+            try {
+                postuler();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
 
             Log.d("test ",""+domainList.size());
@@ -242,10 +257,10 @@ OfferDetailtsView=findViewById(R.id.offerBody);
         }
     });
 }
-    private void postuler(){
+    private void postuler() throws ParseException {
 
 
-       if(domainList.isEmpty() || typeList.isEmpty() || reqList.isEmpty() || skillsList.isEmpty())
+       if(domainList.isEmpty() || typeList.isEmpty() || reqList.isEmpty() || skillsList.isEmpty() )
             {
             if (domainList.isEmpty()) {
                 domaineItemSelected.setText("please select a choice !");
@@ -269,16 +284,25 @@ OfferDetailtsView=findViewById(R.id.offerBody);
                     /********************************Send to FireBase************************/
                     OfferTitle=OfferTitleView.getText().toString();
                     OfferDetails=OfferDetailtsView.getText().toString();
-                    CompanyNameText=CompanyName.getText().toString();
+                  //  CompanyNameText=CompanyName.getText().toString();
             offerSettingsRef=database.getReference("Offers").child(offerid).child("Poster Id");
             offerSettingsRef.setValue(IdUser);
             offerSettingsRef=database.getReference("Offers").child(offerid).child("Details");
             offerSettingsRef.setValue(OfferDetails);
             offerSettingsRef=database.getReference("Offers").child(offerid).child("Title");
             offerSettingsRef.setValue(OfferTitle);
-            offerSettingsRef=database.getReference("Offers").child(offerid).child("Company_name");
-            offerSettingsRef.setValue(CompanyNameText);
+            offerSettingsRef=database.getReference("Offers").child(offerid).child("Paid");
+            if(yesPaid.isChecked())
+            offerSettingsRef.setValue("oui");
+            else
+                offerSettingsRef.setValue("non");
+            offerSettingsRef=database.getReference("Offers").child(offerid).child("StartDate");
+            offerSettingsRef.setValue(StartDate);
+            String formattedDate;
+            formattedDate=getDate();
 
+            offerSettingsRef=database.getReference("Offers").child(offerid).child("DateRelease");
+            offerSettingsRef.setValue(formattedDate);
 
             /***Domains ***/
             for(String domain:domainList)
@@ -355,6 +379,18 @@ OfferDetailtsView=findViewById(R.id.offerBody);
                     .show();
         }
     }
+
+    private String getDate() throws ParseException {
+        Date c = Calendar.getInstance().getTime();
+        String formattedDate = df.format(c);
+
+        Calendar c2=Calendar.getInstance();
+        c2.setTime(df.parse(formattedDate));
+        c2.add(Calendar.DATE, 1);
+        formattedDate = df.format(c2.getTime());
+        return formattedDate;
+    }
+
     private void showListItemes(final String[] itemsResTab, final TextView textView){
 
         final boolean[] checkedItems;
