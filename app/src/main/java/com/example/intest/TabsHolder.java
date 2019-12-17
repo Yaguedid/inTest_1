@@ -26,6 +26,7 @@ public class TabsHolder  extends AppCompatActivity {
     private String EmailUser,FisrtnameUser,LastNameUser,IdUser,PictureUser,StudentOrEmployer;
     private SharedPreferences userinfo;
     LinearLayout parentLinearLayout ;
+    LinearLayout parentLinearLayoutExperience ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,5 +130,9 @@ public class TabsHolder  extends AppCompatActivity {
         parentLinearLayout.removeView((View) v.getParent());
          Toast.makeText(mVar, "on delet", Toast.LENGTH_SHORT).show();
          tab_3.getInstance().parentLinearLayout=parentLinearLayout;
+    }
+    public void onDeleteExperienceFiled(View v) {
+        parentLinearLayoutExperience.removeView((View) v.getParent());
+        tab_3.getInstance().parentLinearLayoutExperience=parentLinearLayoutExperience;
     }
 }
