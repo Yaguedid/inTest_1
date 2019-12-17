@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.intest">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".navigation.addText">
+
+        </activity>
+
+        <activity
+            android:name=".navigation.DashbordNavigation"
+            android:label="@string/title_activity_dashbord_navigation"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8266359058019254~3805818182" />
+
+        <activity android:name=".function.SendSms" />
+        <activity android:name=".CV_Display"
+            android:theme="@style/AppTheme2"
+            ></activity>
+        <activity
+            android:name=".DashbordStudent"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Settings" />
+        <activity
+            android:name=".InboxForStudents"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".StudentOrEmployer"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".InboxForEmployers"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".TabsHolder"
+            android:theme="@style/AppTheme2" >
+
+        </activity>
+        <activity
+            android:name=".VeryFirstActivity"
+            android:theme="@style/AppTheme2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ApplayAnOffre"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".SharchForOffer"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".DashbordEmployer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListOfMatchingOffers"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".WelcomeScreen"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".NewLinkedInIntegration" />
+        <activity
+            android:name=".PostAnOffer"
+            android:theme="@style/AppTheme2" />
+    </application>
+
+</manifest>

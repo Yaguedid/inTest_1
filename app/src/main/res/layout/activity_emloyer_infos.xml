@@ -1,0 +1,514 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:background="@drawable/gradientbackground"
+
+        >
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/back_icon"
+            >
+
+        </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/UserImage"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/exemple_pic"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:text="Wiliam Snoe"
+                android:textColor="#fff"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_above="@id/footer2"
+        android:background="#AAebebe0"
+
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="3dp"
+              android:layout_marginTop="10dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:padding="10dp"
+
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="100"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Personal informations"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="40"
+                            android:text="Prenom"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:hint="prenom"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></EditText>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="40"
+                            android:text="nom"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:hint="nom"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></EditText>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="40"
+                            android:text="email"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:hint="email"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></EditText>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="#fff"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardElevation="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:padding="10dp"
+
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="100"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Company Informations"
+                        android:textStyle="bold"
+                        android:textColor="#341825"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:text="Logo de l'entreprise"
+                            android:textColor="#455454"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="#f2f2f2"
+                            android:src="@drawable/upload_image_icon"
+                            >
+
+                        </ImageView>
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:text="Choisir image"
+                            android:textColor="#455454"
+                            android:background="@drawable/dotted"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textAllCaps="false"
+                            android:textSize="15dp"
+                            android:drawablePadding="10dp"
+                            android:padding="10dp"
+                            android:drawableLeft="@drawable/upload_image_icon"
+
+                            ></Button>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="40"
+                            android:text="Nom d'entreprise"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:hint="nom entreprise"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></EditText>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="40"
+                            android:text="Description"
+                            android:textColor="#455454"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:hint="description"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></EditText>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="10"
+                            android:text="Date of Birth"
+                            android:textColor="#000"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            android:textSize="15dp"
+
+
+                            ></LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/footer2"
+        android:background="@drawable/gradientbackground"
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                />
+
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="@drawable/no_icon"
+                android:onClick="no"
+            />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="20"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="@drawable/yes_icon"
+                android:onClick="yes"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="30"
+                android:layout_height="match_parent"/>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>

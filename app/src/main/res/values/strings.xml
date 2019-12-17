@@ -1,0 +1,166 @@
+<resources>
+    <string name="app_name">LinkedinApp</string>
+    <string name="dialog_title">Domaine d\'offre</string>
+    <string name="ok_label">OK</string>
+    <string name="dismiss_label">Dismiss</string>
+    <string name="clear_all_label">Uncheck All</string>
+    <string name="nom">Nom</string>
+    <string name="offre_title">Titre d\'offre</string>
+    <string name="select_domoain">Génie?</string>
+    <string name="select_type">Type d\'offre</string>
+    <string name="requiremments">Diplome</string>
+    <string name="skills_and_experiences">Compétences</string>
+    <string name="Ville_prefere">Ville préférée</string>
+    <string name="Periode_stage">Période de Stage</string>
+    <string name="postuler">Postuler</string>
+    <string-array name="domaine_item">
+        <item>Développement mobile</item>
+        <item>Ingenierie éléctrique</item>
+        <item>Ingenierie des systemes embarqués</item>
+
+    </string-array>
+
+    <string-array name="requirement_item">
+        <item>BAC+5</item>
+        <item>BAC+3</item>
+        <item>BAC+2</item>
+        <item>BAC+4</item>
+
+    </string-array>
+
+    <string-array name="type_item">
+        <item>stage fin d\'etude</item>
+        <item>stage pre embauche</item>
+        <item>offre d\'emploi</item>
+
+    </string-array>
+
+    <string-array name="skills_item">
+        <item>Java</item>
+        <item>Android</item>
+        <item>Ios</item>
+        <item>Java EE </item>
+        <item>Flutter</item>
+        <item>JavaScript</item>
+    </string-array>
+    <string-array name="city_item">
+        <item>Casablanca</item>
+        <item>Rabat</item>
+        <item>Fes</item>
+        <item>Tanger EE </item>
+        <item>El Jadida</item>
+        <item>Marrackech</item>
+    </string-array>
+    <string-array name="period_item">
+        <item>2 mois</item>
+        <item>3 mois</item>
+        <item>6 mois</item>
+    </string-array>
+
+
+    <string name="tab_text_1">A propos de vous ?</string>
+    <string name="tab_text_2">Education</string>
+    <string name="tab_text_3">Compétences</string>
+    <string name="tab_text_4">Extra</string>
+
+    <string-array name="city">
+        <item>Casablanca</item>
+        <item>Rabat</item>
+        <item>Fes</item>
+        <item>Tanger EE </item>
+        <item>El Jadida</item>
+        <item>Marrackech</item>
+
+    </string-array>
+
+    <string-array name="years">
+        <item>1995</item>
+        <item>1996</item>
+        <item>1997</item>
+        <item>1998</item>
+        <item>1999</item>
+        <item>2000</item>
+
+
+    </string-array>
+
+    <string-array name="months">
+        <item>Janvier</item>
+        <item>Février</item>
+        <item>Mars</item>
+        <item>Avrile</item>
+        <item>Mai</item>
+        <item>Juin</item>
+        <item>juillet</item>
+        <item>août</item>
+        <item>septembre</item>
+        <item>septembre</item>
+        <item>octobre</item>
+        <item>novembre</item>
+        <item>décembre</item>
+
+    </string-array>
+    <string-array name="day">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </string-array>
+
+    <string-array name="languge">
+        <item>arabe</item>
+        <item>anglais</item>
+        <item>francais</item>
+
+
+    </string-array>
+    <string name="title_activity_dashbord_navigation">DashbordNavigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="togle_open">open</string>
+    <string name="togle_close">close</string>
+
+
+
+
+
+</resources>

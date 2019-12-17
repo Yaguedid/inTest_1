@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@drawable/download_pic"
+        android:title="Telecharger le CV du Candidat"
+        android:id="@+id/download_cv_candidate"
+        app:showAsAction="never"
+
+        />
+    <item
+        android:icon="@drawable/download_pic"
+        android:title="Voir le lettre de motivation"
+        android:id="@+id/see_letter"
+        app:showAsAction="never"
+        />
+    <item
+        android:icon="@drawable/download_pic"
+        android:title="Telecharger le CV de L'application"
+        android:id="@+id/download_cv_app"
+        app:showAsAction="never"
+        />
+
+</menu>

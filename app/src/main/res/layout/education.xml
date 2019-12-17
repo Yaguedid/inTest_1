@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="7dp"
+    android:background="#3EC2D5FD"
+    >
+
+
+
+        <TableLayout
+            android:layout_marginTop="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+
+          >
+
+
+
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_margin="7dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Diplome"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="17dp"
+
+
+                        />
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+                      <CheckBox
+                          android:layout_weight="1"
+                          android:id="@+id/bacPlus_2"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:text="Bac+2"
+                          />
+                      <CheckBox
+                          android:layout_weight="1"
+                          android:id="@+id/bacPlus_3"
+                          android:layout_width="wrap_content"
+                          android:layout_height="match_parent"
+                          android:text="Bac+3"
+                          />
+
+                  </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:layout_weight="1"
+                            android:id="@+id/bacPlus_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Bac+4"
+                            />
+                        <CheckBox
+                            android:layout_weight="1"
+                            android:id="@+id/bacPlus_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Bac+5"
+
+                            />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </TableRow>
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_margin="7dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Domaine"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginRight="17dp"
+
+
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                       >
+                         <Button
+                             android:id="@+id/geni_id"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:text="Génie ?"
+                             android:layout_gravity="center_horizontal"
+                             android:background="@color/Verifcation_Button"
+                             />
+                        <TextView
+                            android:id="@+id/geni_selected_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                             />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </TableRow>
+
+
+
+
+        </TableLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

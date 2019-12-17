@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3EC2D5FD"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#3EC2D5FD"
+        android:layout_margin="7dp"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="17dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_margin="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Type D'Offres Chérchées"
+            android:textAllCaps="true"
+
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/offre_looking_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Verifcation_Button"
+            android:text="type ?" />
+
+        <TextView
+            android:id="@+id/offresSelected_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+           />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="7dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_margin="7dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Période Désirée"
+            android:textAllCaps="true"
+
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/period_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Verifcation_Button"
+            android:text="Période ?" />
+
+        <TextView
+            android:id="@+id/periodSelected_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+           />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="7dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_margin="7dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="About You"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/about_uer_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#AAb8b894"
+            android:gravity="left|top"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:maxLines="10"
+            android:minLines="3"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/Verifcation_Button"
+           />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="17dp"
+
+        android:gravity="end|bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/next_offre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Verifier"
+            android:drawableRight="@drawable/chekicon"
+
+            />
+    </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

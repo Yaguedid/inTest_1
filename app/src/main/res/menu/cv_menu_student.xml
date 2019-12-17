@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:icon="@drawable/edit_icon"
+        android:title="Modifier Mon CV "
+        android:id="@+id/edit_cv"
+        app:showAsAction="never"
+        />
+
+</menu>

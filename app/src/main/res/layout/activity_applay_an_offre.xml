@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ApplayAnOffre">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:background="#AAb8b894"
+
+
+                >
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="30"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/Employer_ImageId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#FF000000"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="30dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="50"
+                        android:background="#AAff9900"
+                        android:layout_marginBottom="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nom "
+                            android:textStyle="bold|italic"
+
+
+                            android:paddingBottom="5dp"
+                            android:id="@+id/Employer_FirstNameId"
+
+                            />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="50"
+                        android:background="#AAff9900"
+                        android:layout_marginBottom="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nom "
+                            android:textStyle="bold|italic"
+
+
+                            android:paddingBottom="5dp"
+                            android:id="@+id/Employer_LastNameId"
+
+                            />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="50"
+                        android:background="#AAff9900">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nom "
+                            android:textStyle="bold|italic"
+
+                            android:paddingBottom="5dp"
+                            android:id="@+id/Employer_EmailId"
+
+                            />
+                    </TableRow>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    >
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Emploer_OffreTittleId"
+                        android:text="jdjdjd"
+                        android:padding="10dp"
+                        android:textSize="21dp"
+                        android:textColor="#ff0000"
+                        android:fontFamily="@font/dancing_script"
+                        android:textStyle="bold"
+
+                        />
+
+
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#AAb8b894"
+                        android:gravity="left|top"
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:hint="Company name"
+                        android:id="@+id/Company_name"
+                        android:textStyle="bold"
+
+                        />
+                    />
+
+                </LinearLayout>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                      android:background="#AAb8b894"
+                        android:gravity="left|top"
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:hint="offer details"
+                        android:id="@+id/Employer_OfferBodyId"
+                        android:textStyle="bold"
+
+                        />
+                    />
+
+                </LinearLayout>
+            </TableRow>
+
+
+
+
+
+
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="7dp"
+                    >
+
+                    <Button
+                        android:id="@+id/UplodCv_BtnId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upload Your Cv"
+                        android:theme="@style/FlatButton"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:background="@color/myWeight"
+                        android:textColor="#1f1f7a"
+                        android:fontFamily="@font/dancing_script"
+                        android:textSize="17dp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/id_TextSkills"
+                        android:textColor="@color/colorPrimary"
+                        />
+
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="7dp"
+                    >
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/applay_Btn"
+                        android:text="@string/postuler"
+                        android:theme="@style/FlatButton"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:background="@color/myWeight"
+                        android:textColor="@color/colorPrimary"
+                        />
+
+
+                </LinearLayout>
+
+            </TableRow>
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adViewi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            </com.google.android.gms.ads.AdView>
+        </TableLayout>
+
+
+
+
+    </RelativeLayout>
+</ScrollView>
