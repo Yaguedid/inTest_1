@@ -1,55 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="0"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
+    android:layout_height="150dp"
 
-    android:background="#BBc2c2a3"
+
+
+    android:background="#fff"
     android:layout_marginTop="10dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
 
+
     >
 
-    <ImageView
-        android:layout_width="38dp"
-        android:layout_height="20dp"
-        android:layout_weight="0"
-        android:src="@drawable/post_offer_icon"
-     ></ImageView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="80"
+        android:padding="10dp"
+        >
 
-    <TextView
-        android:id="@+id/OfferTitleId"
-        android:layout_width="147dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="20"
-        android:hint="message"
-        android:maxWidth="147dp"
-        android:maxLines="1"
-        android:textColor="#000"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/dancing_script"
-        />
-    <TextView
-        android:id="@+id/MatchinAvId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="23%"
-        android:textSize="17dp"
-        android:textColor="#ff0000"
-        android:layout_weight="5"
-        android:textStyle="bold|italic"
-        android:textAlignment="center"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="80"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/OfferTitleId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-    <Button
-        android:id="@+id/deleteButt"
-        android:layout_width="38dp"
-        android:layout_height="20dp"
-        android:layout_weight="0"
-       android:background="@drawable/delete_icon"
-        ></Button>
+                    android:text="yassine aguedid"
+                    android:textColor="#5b5b3e"
+                    android:textSize="17dp"
+
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:fontFamily="@font/myriadpro_bold"
+                    />
+                <TextView
+                    android:id="@+id/CityStudent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="casablanca"
+                    android:textColor="#a2a276"
+                    android:textSize="17dp"
+
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:fontFamily="@font/myriadpro_regular"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+                    android:layout_marginTop="10dp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:id="@+id/imageUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="30"
+
+
+
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:background="#f5f5f0"
+            android:padding="10dp"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:src="@drawable/like_icon"
+                android:layout_marginLeft="5dp"
+                />
+
+
+
+            <TextView
+                android:id="@+id/SchoolAndYear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="55"
+                android:text="Ecole\nAnnee"
+                android:textColor="#89895d"
+                android:textSize="12dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/myriadpro_regular"
+                />
+            <TextView
+                android:id="@+id/MatchinAvId"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:text="80%"
+                android:textColor="#ff9900"
+                android:textSize="17dp"
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/myriadpro_bold"
+                />
+
+            <Button
+                android:id="@+id/deleteButt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+
+                android:textColor="#FFF"
+                android:background="@drawable/no_icon"
+                android:fontFamily="@font/myriadpro_semibold"
+
+                android:textAlignment="center"
+                android:layout_marginLeft="10dp"
+                ></Button>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
 </LinearLayout>
+
+
+

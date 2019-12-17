@@ -1,14 +1,20 @@
 package com.example.intest;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -16,15 +22,28 @@ public class MyRecyclerViewAdapterForMyInbox  extends RecyclerView.Adapter<MyRec
 
     private List<String> NameOfCandidate;
     private List<String> MatchingAvList;
+    private List<String> PicturesList;
+    private List<String> CitiesList;
+    private List<String> SchoolsList;
+    private List<String> SchoolYearList;
+    private List<String> DegreeList;
     private LayoutInflater mInflater;
     private MyRecyclerViewAdapterForMyInbox.ItemClickListener mClickListener;
     private static DecimalFormat df2 = new DecimalFormat("#.#");
 
     // data is passed into the constructor
-    MyRecyclerViewAdapterForMyInbox(Context context, List<String> data, List<String> matchingAv) {
+    MyRecyclerViewAdapterForMyInbox(Context context, List<String> data, List<String> matchingAv,List<String> pictures,List<String> cities,
+                                    List<String> school,List<String> schoolyear,List<String> degree ) {
         this.mInflater = LayoutInflater.from(context);
         this.NameOfCandidate = data;
         this.MatchingAvList=matchingAv;
+        this.PicturesList = pictures;
+        this.CitiesList=cities;
+        this.SchoolsList=school;
+        this.SchoolYearList=schoolyear;
+        this.DegreeList=degree;
+
+
     }
 
     // inflates the row layout from xml when needed
@@ -39,9 +58,18 @@ public class MyRecyclerViewAdapterForMyInbox  extends RecyclerView.Adapter<MyRec
     public void onBindViewHolder(MyRecyclerViewAdapterForMyInbox.ViewHolder holder, int position) {
         String candidateName = NameOfCandidate.get(position);
         String average=MatchingAvList.get(position);
+        String imageUrl=PicturesList.get(position);
+        String city=CitiesList.get(position);
+        String school=SchoolsList.get(position);
+        String schoolyear=SchoolYearList.get(position);
+        String degree=DegreeList.get(position);
+        holder.cityUserView.setText(city);
+        holder.SchoolAndThingsView.setText(degree+"\n"+school+"\n"+schoolyear);
         holder.offerIdTitleView.setText(candidateName);
         double avragedouble=Double.valueOf(average);
         holder.matchingOfferAv.setText(df2.format(avragedouble)+"%");
+        new DownloadImageTask((ImageView)holder.pictureUserView)
+                .execute(imageUrl);
     }
 
     // total number of rows
@@ -62,13 +90,19 @@ public void delete(int position)
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView offerIdTitleView;
         TextView matchingOfferAv;
+        ImageView pictureUserView;
+        TextView cityUserView;
+        TextView SchoolAndThingsView;
         Button deleteButt;
 
 
         ViewHolder(View itemView) {
             super(itemView);
             offerIdTitleView = itemView.findViewById(R.id.OfferTitleId);
+            SchoolAndThingsView = itemView.findViewById(R.id.SchoolAndYear);
             deleteButt=itemView.findViewById(R.id.deleteButt);
+            pictureUserView=itemView.findViewById(R.id.imageUser);
+            cityUserView=itemView.findViewById(R.id.CityStudent);
             matchingOfferAv=itemView.findViewById(R.id.MatchinAvId);
             itemView.setOnClickListener(this);
             deleteButt.setOnClickListener(this);
@@ -103,6 +137,30 @@ public void delete(int position)
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
+    }
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
     }
 }
 

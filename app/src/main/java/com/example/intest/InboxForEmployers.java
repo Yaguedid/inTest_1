@@ -39,6 +39,12 @@ public class InboxForEmployers extends AppCompatActivity implements MyRecyclerVi
     List<String> CandidatesFirstNames=new ArrayList<>();
     List<String> CandidatesLastNames=new ArrayList<>();
     List<String> CandidatesFullNames=new ArrayList<>();
+    List<String> CandidatesPictures=new ArrayList<>();
+    List<String> CandidatesCities=new ArrayList<>();
+    List<String> CandidatesSchool=new ArrayList<>();
+    List<String> CandidatesSchoolYear=new ArrayList<>();
+    List<String> CandidatesDegree=new ArrayList<>();
+
     List<String> ListToRemove=new ArrayList<>();
     public static InboxForEmployers mVariable;
     @Override
@@ -57,7 +63,8 @@ public class InboxForEmployers extends AppCompatActivity implements MyRecyclerVi
     {
         RecyclerView recyclerView = findViewById(R.id.errorRy);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapterForMyInbox(this,CandidatesFullNames,AverageCandidatesList);
+        adapter = new MyRecyclerViewAdapterForMyInbox(this,CandidatesFullNames,AverageCandidatesList,CandidatesPictures,CandidatesCities
+        ,CandidatesSchool,CandidatesSchoolYear,CandidatesDegree);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
@@ -123,6 +130,106 @@ public class InboxForEmployers extends AppCompatActivity implements MyRecyclerVi
 
                 }else
                 {
+                    threadToForceWaitForPictures(size);
+                }
+
+            }
+        });
+
+    }
+    public void threadToForceWaitForPictures(final int size)
+    {
+        getMatchingCandidatesPictures();
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if(CandidatesPictures.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForCities(size);
+                }
+
+            }
+        });
+
+    }
+    public void threadToForceWaitForCities(final int size)
+    {
+        getMatchingCandidatesCities();
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if(CandidatesCities.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForSchools(size);
+                }
+
+            }
+        });
+
+    }
+    public void threadToForceWaitForSchools(final int size)
+    {
+        getMatchingCandidatesSchool();
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if(CandidatesSchool.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForSchoolYear(size);
+                }
+
+            }
+        });
+
+    }
+    public void threadToForceWaitForSchoolYear(final int size)
+    {
+        getMatchingCandidatesSchoolYear();
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if(CandidatesSchoolYear.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForDegree(size);
+                }
+
+            }
+        });
+
+    }
+    public void threadToForceWaitForDegree(final int size)
+    {
+        getMatchingCandidatesDegree();
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                if(CandidatesDegree.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
                     showCompleteName();
                 }
 
@@ -156,6 +263,86 @@ public class InboxForEmployers extends AppCompatActivity implements MyRecyclerVi
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String value = dataSnapshot.getValue(String.class);
                     CandidatesLastNames.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getMatchingCandidatesPictures()
+    {
+        for(String id:MatchingCandidatesListIds)
+        {
+            myRef=database.getReference("Users").child(id).child("Picture");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    CandidatesPictures.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getMatchingCandidatesCities()
+    {
+        for(String id:MatchingCandidatesListIds)
+        {
+            myRef=database.getReference("Users").child(id).child("City");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    CandidatesCities.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getMatchingCandidatesSchool()
+    {
+        for(String id:MatchingCandidatesListIds)
+        {
+            myRef=database.getReference("Users").child(id).child("School");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    CandidatesSchool.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getMatchingCandidatesSchoolYear()
+    {
+        for(String id:MatchingCandidatesListIds)
+        {
+            myRef=database.getReference("Users").child(id).child("SchoolYear");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    CandidatesSchoolYear.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getMatchingCandidatesDegree()
+    {
+        for(String id:MatchingCandidatesListIds)
+        {
+            myRef=database.getReference("Users").child(id).child("Degree");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    CandidatesDegree.add(value);
                 }
                 @Override
                 public void onCancelled(DatabaseError error) {}

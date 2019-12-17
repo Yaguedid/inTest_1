@@ -96,13 +96,18 @@ setAdds();
     public void goToDashbord(View view)
     {
         if(StudentOrEmployer.equals("Employer"))
-        startActivity(new Intent(WelcomeScreen.this, DashbordEmployer.class));
+        {// FirstTime=userinfo.getString("FirstTime",null);
+           // if(FirstTime==null)
+            //startActivity(new Intent(WelcomeScreen.this, info_employer.class));
+           // else
+                startActivity(new Intent(WelcomeScreen.this, DashbordEmployer.class));
+        }
        else
         {
-          FirstTime=userinfo.getString("FirstTime",null);
-            if(FirstTime==null)
-             startActivity(new Intent(WelcomeScreen.this,TabsHolder.class));
-           else
+         // FirstTime=userinfo.getString("FirstTime",null);
+          //  if(FirstTime==null)
+        //     startActivity(new Intent(WelcomeScreen.this,TabsHolder.class));
+        //   else
             startActivity(new Intent(WelcomeScreen.this, DashbordStudent.class));
         }
 

@@ -46,9 +46,9 @@ public class ApplayAnOffre extends AppCompatActivity {
 
     /**** Employer Detalils ****/
 
-    ImageView EmployerImage;
-            TextView EmployerFirstName,EmployerLastName,EmployerEmaile,OffreTitle,OffreDescription,CompanyNameView;
 
+    TextView OffreTitle,OffreDescription,CompanyNameView,CityView,ReleaseDateView,StartDateView,PeriodeView,PaidOrNotView,CompanyDetails;
+    ImageView logoCompanyView;
 
 
 
@@ -71,14 +71,15 @@ public class ApplayAnOffre extends AppCompatActivity {
     private int PICK_IMAGE_INTENT=2;
     private ProgressDialog progressDialog;
     public Map<String, String> map= new HashMap<>();
+    public Map<String, String> Usermap= new HashMap<>();
     public Map<String, String> EmpMap= new HashMap<>();
     private SharedPreferences userinfo;
     String averageMatching;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_applay_an_offre);
-        setAdds();
+        setContentView(R.layout.activity_applay_an_offre2);
+       // setAdds();
 
 
          userinfo=getSharedPreferences("userinfos", MODE_PRIVATE);
@@ -192,13 +193,26 @@ public class ApplayAnOffre extends AppCompatActivity {
                 String detail= map.get("Details");
                 String id= map.get("Poster Id");
                 String title= map.get("Title");
+                String city=map.get("City");
+                String startDate=map.get("StartDate");
+                String releaseDate=map.get("DateRelease");
+                String paidOrNot=map.get("Paid");
+                String periode=map.get("Periode");
+                CityView.setText(city);
+                StartDateView.setText(startDate);
+                ReleaseDateView.setText(releaseDate);
+                if(paidOrNot.equals("yes"))
+                PaidOrNotView.setText("payé");
+                else
+                    PaidOrNotView.setText("non payé");
+                PeriodeView.setText(periode);
                 CompanyNameText=map.get("Company_name");
                 OffreTitle.setText(title);
                 OffreDescription.setText(detail);
-                CompanyNameView.setText(CompanyNameText);
+               // CompanyNameView.setText(CompanyNameText);
                 EmployerId=id;
                 getEmplyer(id);
-               // Log.d("mydata","details" + detail + "id " + id + " title" + title );
+                getInfosCompany(id);
 
             }
 
@@ -208,6 +222,33 @@ public class ApplayAnOffre extends AppCompatActivity {
             }
         });
     }
+    public void getInfosCompany(String id)
+    {
+        offerRef=database.getReference("Users").child(id);
+        offerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                    Usermap.put(child.getKey(),child.getValue().toString());}
+
+                String CompanyName= Usermap.get("CompanyName");
+                String CompanyDescription= Usermap.get("CompanyDescription");
+                String CompanyLogo= Usermap.get("CompanyLogo");
+                CompanyNameView.setText(CompanyName);
+                CompanyDetails.setText(CompanyDescription);
+
+                new DownloadImageTask((ImageView)logoCompanyView)
+                        .execute(CompanyLogo);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     public void getEmplyer(String employerId ) {
 
         EmployerRef = database.getReference().child("Users").child(employerId) ;
@@ -223,17 +264,9 @@ public class ApplayAnOffre extends AppCompatActivity {
                 String mail= EmpMap.get("Email");
                 String urlPic= EmpMap.get("Picture");
 
-                new ApplayAnOffre.DownloadImageTask((ImageView)EmployerImage)
-                        .execute(urlPic);
 
 
 
-
-                EmployerFirstName.setText(firsName);
-                EmployerLastName.setText(lastName);
-                EmployerEmaile.setText(mail);
-
-               //Log.w("emp" , firsName + "  " + lastName+ "   " +mail+ "   "+ urlPic);
 
 
             }
@@ -280,13 +313,15 @@ public class ApplayAnOffre extends AppCompatActivity {
 
     public void instantiateviews()
     {
-        EmployerFirstName =(TextView) findViewById(R.id.Employer_FirstNameId);
-        EmployerLastName =(TextView) findViewById(R.id.Employer_LastNameId);
-        EmployerEmaile =(TextView) findViewById(R.id.Employer_EmailId);
-        EmployerImage =(ImageView) findViewById(R.id.Employer_ImageId) ;
-        CompanyNameView=findViewById(R.id.Company_name);
 
-
+        CompanyNameView=findViewById(R.id.CompanyName);
+        ReleaseDateView=findViewById(R.id.releaseDate);
+        StartDateView=findViewById(R.id.startdate);
+        PeriodeView=findViewById(R.id.periode);
+        PaidOrNotView=findViewById(R.id.paidOrNot);
+        CompanyDetails=findViewById(R.id.aboutCompany);
+        CityView=findViewById(R.id.cityOffer);
+        logoCompanyView=findViewById(R.id.Company_logo);
         /* offre details */
 
         OffreTitle =(TextView) findViewById(R.id.Emploer_OffreTittleId);
@@ -307,4 +342,6 @@ public class ApplayAnOffre extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
+
 }
+
