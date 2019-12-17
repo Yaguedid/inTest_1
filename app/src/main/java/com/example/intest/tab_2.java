@@ -11,12 +11,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
@@ -54,6 +57,12 @@ public class tab_2 extends Fragment implements CompoundButton.OnCheckedChangeLis
     Boolean isCheckInChekBoxesIsTrue=false;
     int numberOfCheckBoxesCheked=0;
 
+    public LinearLayout parentLinearLayoutDiplomes;
+    int counter_diplomes=0;
+    public List<String> diplomeList=new ArrayList<>();;
+    public List<String> schoolList=new ArrayList<>();;
+    public List<String> yearList=new ArrayList<>();;
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, final ViewGroup container,
@@ -75,22 +84,44 @@ public class tab_2 extends Fragment implements CompoundButton.OnCheckedChangeLis
 
         select_geni.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                    showListItemes(domaineListItems,itemsSelected);
-
-
-
-            }
-
-        }
-        );
+            public void onClick(View v) { showListItemes(domaineListItems,itemsSelected); }});
 
         box1.setOnCheckedChangeListener(this);
         box2.setOnCheckedChangeListener(this);
         box3.setOnCheckedChangeListener(this);
         box4.setOnCheckedChangeListener(this);
 
+
+
+        /****************** ********************* Start get data langues & experience  **************************** ***************************/
+
+        parentLinearLayoutDiplomes = (LinearLayout) root.findViewById(R.id.parent_linear_layout_dipolmes);
+        Button add_diplomes =root.findViewById(R.id.add_field_dipolme);
+        Button delet_diplomes =root.findViewById(R.id.delete_firs_diplome);
+
+        add_diplomes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAddDiplome();
+            }
+        });
+        delet_diplomes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDeleteDiplome(v);
+            }
+        });
+
+
+        Button btn =(Button) root.findViewById(R.id.getText);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDiplomesSelected();
+            }
+        });
+
+        /****************** ********************* End get data langues & experience  ************** **************************/
 
         return root;
     }
@@ -277,4 +308,67 @@ public class tab_2 extends Fragment implements CompoundButton.OnCheckedChangeLis
 
 
     }
+
+
+    public void onAddDiplome() {
+        if(counter_diplomes <4){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+            final View rowView = inflater.inflate(R.layout.filed_diplomes, null);
+            parentLinearLayoutDiplomes.addView(rowView, parentLinearLayoutDiplomes.getChildCount() - 1);
+            TabsHolder.getInstance().parentLinearLayoutDiplomes=parentLinearLayoutDiplomes;
+            // Add the new row before the add field but.addView(rowView, parentLinearLayoutDiplomes.getChildCount() - 1);
+            counter_diplomes++;}
+    }
+
+    public void onDeleteDiplome(View v) {
+        if (counter_diplomes >= 1) {
+            parentLinearLayoutDiplomes.removeView((View) v.getParent());
+            counter_diplomes--;
+        }
+    }
+
+
+   public static String diplomSelected;
+   public static String shoolSelected;
+   public static String yearSelected;
+
+
+    public  void getDiplomesSelected(){
+
+        diplomSelected="";
+        shoolSelected="";
+        yearSelected="";
+
+        diplomeList.clear();
+        yearList.clear();
+        schoolList.clear();
+
+        for(int i=0 ;i<=counter_diplomes;i++) {
+            CardView card = (CardView) parentLinearLayoutDiplomes.getChildAt(i);
+            LinearLayout layout = (LinearLayout) card.getChildAt(0);
+            Spinner diplome = (Spinner) layout.getChildAt(0);
+            Spinner shool = (Spinner) layout.getChildAt(1);
+            Spinner year = (Spinner) layout.getChildAt(2);
+            
+            shoolSelected = shoolSelected + shool.getSelectedItem().toString() + "\n";
+            diplomSelected = diplomSelected + diplome.getSelectedItem().toString() + "\n";
+            yearSelected = yearSelected + year.getSelectedItem().toString() + "\n";
+        }
+
+    }
+
+
+public static boolean checkDiplome(){
+        tab_2.getInstance().getDiplomesSelected();
+        if(diplomSelected.equals("diplome") || shoolSelected.equals("ecole") || yearSelected.equals("annee")) return false;
+        else return true;
+
+}
+
+
+
+
+
+
+
 }

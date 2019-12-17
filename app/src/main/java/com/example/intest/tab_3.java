@@ -3,19 +3,24 @@
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.example.intest.navigation.addText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +28,10 @@ import java.util.List;
 public class tab_3  extends Fragment {
 
     Button chooseSkills;
-    Button chooseLanguge;
+    Button chooseSoftSkills;
 
     TextView skillsSelected;
-    TextView LangugeSelected;
+    TextView SoftSkillsSelectedLanguge;
 
     public List<Integer> mSkillsItems = new ArrayList<>();
     public List<String> skillsList =new ArrayList<>();
@@ -34,10 +39,10 @@ public class tab_3  extends Fragment {
     AlertDialog.Builder skillBuilder ;
 
 
-    public List<Integer> mLanguetems = new ArrayList<>();
-    public List<String> langueList=new ArrayList<>();
-    String[] langueListItems;
-    AlertDialog.Builder langueBuilder ;
+    public List<Integer> mSoftSkillsItems = new ArrayList<>();
+    public List<String> SoftSkillsList=new ArrayList<>();
+    String[] softSkillsListItems;
+    AlertDialog.Builder SoftSkillsBuilder ;
 
     Context context;
     public static tab_3  tab3_var;
@@ -48,70 +53,55 @@ public class tab_3  extends Fragment {
     public LinearLayout parentLinearLayoutExperience;
 
 
+    int counter=0;
+    int counter_experiences=0;
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.skills, container, false);
-
-
-
         tab3_var=this;
         context=this.getActivity();
         skillBuilder = new AlertDialog.Builder(context);
-        langueBuilder = new AlertDialog.Builder(context);
+        SoftSkillsBuilder = new AlertDialog.Builder(context);
 
-
-        chooseLanguge=(Button)root.findViewById(R.id.langue_id);
+        chooseSoftSkills=(Button)root.findViewById(R.id.langue_id);
         chooseSkills=(Button)root.findViewById(R.id.skiils_id);
 
-
         skillsSelected=(TextView) root.findViewById(R.id.skills_selected);
-        LangugeSelected=(TextView) root.findViewById(R.id.langue_selected);
+        SoftSkillsSelectedLanguge=(TextView) root.findViewById(R.id.langue_selected);
 
         skillsListItems =getResources().getStringArray(R.array.skills_item);
-        langueListItems =getResources().getStringArray(R.array.languge);
-
-
+        softSkillsListItems =getResources().getStringArray(R.array.soft_skills);
 
         chekIfFiledEmpty();
         checkIfListEmpty(skillsList,skillsSelected);
-        checkIfListEmpty(langueList,LangugeSelected);
-
-
-
+        checkIfListEmpty(SoftSkillsList,SoftSkillsSelectedLanguge);
 
         chooseSkills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                showSkillsItemes();
-
-
-            }
+                showSkillsItemes(); }
 
 
         });
 
-        chooseLanguge.setOnClickListener(new View.OnClickListener() {
+        chooseSoftSkills.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                showLangugeItems();
-
-            }
+            public void onClick(View v) { showLangugeItems(); }});
 
 
-        });
 
-
-        /*********************************** lang & experiences*************************************************/
+ /****************** ********************* Start get data langues & experience  **************************** ***************************/
 
         parentLinearLayout = (LinearLayout) root.findViewById(R.id.parent_linear_layout);
         parentLinearLayoutExperience = (LinearLayout) root.findViewById(R.id.parent_linear_layout_Experience);
 
         Button add_languge =root.findViewById(R.id.add_field_button);
         Button add_Experience =root.findViewById(R.id.add_Experience_button);
+        Button delet_langue =root.findViewById(R.id.delete_firs_lang);
+        Button delet_experience =root.findViewById(R.id.delete_Experience);
 
         add_languge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,9 +115,35 @@ public class tab_3  extends Fragment {
                 onAddExperienceFiled();
             }
         });
+        delet_langue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDelete(v);
+            }
+        });
+        delet_experience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDeleteExperienceFiled(v);
+            }
+        });
 
+        Button btn =(Button) root.findViewById(R.id.getText);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLangueSelected();
+            }
+        });
+        Button btn_exper =(Button) root.findViewById(R.id.getExperiences);
+        btn_exper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getExperiencesSelected();
+            }
+        });
 
-
+        /****************** ********************* End get data langues & experience  ************** *****************************************/
         return root;
     }
 
@@ -139,7 +155,7 @@ public class tab_3  extends Fragment {
 
         chekIfFiledEmpty();
         checkIfListEmpty(skillsList,skillsSelected);
-        checkIfListEmpty(langueList,LangugeSelected);
+        checkIfListEmpty(SoftSkillsList,SoftSkillsSelectedLanguge);
     }
 
     private void showSkillsItemes(){
@@ -151,7 +167,7 @@ public class tab_3  extends Fragment {
 
 
 
-        skillBuilder.setTitle(R.string.dialog_title);
+        skillBuilder.setTitle("Choisissez vos Compétances");
 
         skillBuilder.setMultiChoiceItems(skillsListItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
@@ -174,7 +190,7 @@ public class tab_3  extends Fragment {
                 String item = "";
                 for (int i = 0; i < mSkillsItems.size(); i++) {
                     if(! skillsList.contains(skillsListItems[mSkillsItems.get(i)] )) {
-                        item = item + skillsListItems[mSkillsItems.get(i)] + ",\n";
+                        item = item + skillsListItems[mSkillsItems.get(i)] + " + ";
                         skillsList.add(skillsListItems[mSkillsItems.get(i)]);
 
                     }
@@ -221,73 +237,73 @@ public class tab_3  extends Fragment {
     public void showLangugeItems(){
         final boolean[] checkedLangItems;
 
-        checkedLangItems = new boolean[langueListItems.length];
+        checkedLangItems = new boolean[softSkillsListItems.length];
 
-        langueList= new ArrayList<>();
+        SoftSkillsList= new ArrayList<>();
 
 
 
-        langueBuilder.setTitle("Choose languge");
+        SoftSkillsBuilder.setTitle("Choisissez vos Soft-Skills");
 
-        langueBuilder.setMultiChoiceItems(langueListItems, checkedLangItems, new DialogInterface.OnMultiChoiceClickListener() {
+        SoftSkillsBuilder.setMultiChoiceItems(softSkillsListItems, checkedLangItems, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
 
                 if(isChecked){
-                    mLanguetems.add(position);
+                    mSoftSkillsItems.add(position);
                 }else{
-                    mLanguetems.remove((Integer.valueOf(position)));
+                    mSoftSkillsItems.remove((Integer.valueOf(position)));
                 }
             }
         });
 
-        langueBuilder.setCancelable(false);
+        SoftSkillsBuilder.setCancelable(false);
 
-        langueBuilder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
+        SoftSkillsBuilder.setPositiveButton(R.string.ok_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
 
                 String item = "";
-                for (int i = 0; i < mLanguetems.size(); i++) {
-                    if(! langueList.contains(langueListItems[mLanguetems.get(i)] )) {
-                        item = item + langueListItems[mLanguetems.get(i)] + ",\n";
-                        langueList.add(langueListItems[mLanguetems.get(i)]);
+                for (int i = 0; i < mSoftSkillsItems.size(); i++) {
+                    if(! SoftSkillsList.contains(softSkillsListItems[mSoftSkillsItems.get(i)] )) {
+                        item = item + softSkillsListItems[mSoftSkillsItems.get(i)] + " + ";
+                        SoftSkillsList.add(softSkillsListItems[mSoftSkillsItems.get(i)]);
 
                     }
                 }
                 if(item.equals("")){
-                    LangugeSelected.setText("no items selected !");
-                    LangugeSelected.setTextColor(getResources().getColor(R.color.colorAccent));
+                    SoftSkillsSelectedLanguge.setText("no items selected !");
+                    SoftSkillsSelectedLanguge.setTextColor(getResources().getColor(R.color.colorAccent));
                 }else {
-                    LangugeSelected.setText(item);
-                    LangugeSelected.setTextColor(getResources().getColor(R.color.colorPrimary));
-                    chooseLanguge.setBackgroundColor(getResources().getColor(R.color.Verifcation_Button));}
+                    SoftSkillsSelectedLanguge.setText(item);
+                    SoftSkillsSelectedLanguge.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    chooseSoftSkills.setBackgroundColor(getResources().getColor(R.color.Verifcation_Button));}
             }
         });
 
-        langueBuilder.setNegativeButton(R.string.dismiss_label, new DialogInterface.OnClickListener() {
+        SoftSkillsBuilder.setNegativeButton(R.string.dismiss_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
             }
         });
 
-        langueBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
+        SoftSkillsBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                langueList.clear();
+                SoftSkillsList.clear();
                 for (int i = 0; i < checkedLangItems.length; i++) {
                     checkedLangItems[i] = false;}
 
-                mLanguetems.clear();
-                LangugeSelected.setText("no items selected !");
-                LangugeSelected.setTextColor(getResources().getColor(R.color.colorAccent));
+                mSoftSkillsItems.clear();
+                SoftSkillsSelectedLanguge.setText("no items selected !");
+                SoftSkillsSelectedLanguge.setTextColor(getResources().getColor(R.color.colorAccent));
 
 
             }
         });
 
-        AlertDialog mDialog = langueBuilder.create();
+        AlertDialog mDialog = SoftSkillsBuilder.create();
         mDialog.show();
 
 
@@ -301,7 +317,7 @@ public class tab_3  extends Fragment {
             String item="";
             for(int i=0;i<list.size();i++){
 
-                item=item+list.get(i) +",\n";
+                item=item+list.get(i) +" + ";
             }
             textView.setText(item);
             textView.setTextColor(getResources().getColor(R.color.colorPrimary));
@@ -312,7 +328,7 @@ public class tab_3  extends Fragment {
         if(! skillsList.isEmpty() )  TabsHolder.getInstance().chekMap.put("skills","true");
         else  TabsHolder.getInstance().chekMap.put("skills","false");
 
-        if(! langueList.isEmpty() )  TabsHolder.getInstance().chekMap.put("skills_langue","true");
+        if(! SoftSkillsList.isEmpty() )  TabsHolder.getInstance().chekMap.put("skills_langue","true");
         else TabsHolder.getInstance().chekMap.put("skills_langue","false");
     }
 
@@ -329,37 +345,119 @@ public class tab_3  extends Fragment {
                 chooseSkills.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             }
 
-            if (langueList.isEmpty()) {
-                LangugeSelected.setText("no items selected !");
-                LangugeSelected.setTextColor(getResources().getColor(R.color.colorAccent));
-                chooseLanguge.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+            if (SoftSkillsList.isEmpty()) {
+                SoftSkillsSelectedLanguge.setText("no items selected !");
+                SoftSkillsSelectedLanguge.setTextColor(getResources().getColor(R.color.colorAccent));
+                chooseSoftSkills.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             }
 
         }
 
     }
 
-    public void onAddField() {
+
+
+
+
+
+
+
+
+
+
+ /*********************************** Start Experinces and Langueges Handler  ***********************************/
+
+  public void onAddField() {
+        if(counter <4){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         final View rowView = inflater.inflate(R.layout.field, null);
         parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
         TabsHolder.getInstance().parentLinearLayout=parentLinearLayout;
         // Add the new row before the add field but.addView(rowView, parentLinearLayout.getChildCount() - 1);
+        counter++;}
     }
-
-    public void onDelete(View v) {
-        parentLinearLayout.removeView((View) v.getParent());
-    }
-
     public void onAddExperienceFiled() {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        final View rowView = inflater.inflate(R.layout.filed_exeriences, null);
-        parentLinearLayoutExperience.addView(rowView, parentLinearLayoutExperience.getChildCount() - 1);
-        TabsHolder.getInstance().parentLinearLayoutExperience=parentLinearLayoutExperience;
-        // Add the new row before the add field but.addView(rowView, parentLinearLayout.getChildCount() - 1);
+        if(counter_experiences<=4) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+            final View rowView = inflater.inflate(R.layout.filed_exeriences, null);
+            parentLinearLayoutExperience.addView(rowView, parentLinearLayoutExperience.getChildCount() - 1);
+            TabsHolder.getInstance().parentLinearLayoutExperience = parentLinearLayoutExperience;
+            counter_experiences++;
+        }
+
+    }
+    public void onDelete(View v) {
+       if(counter>=1){
+           parentLinearLayout.removeView((View) v.getParent());
+           counter--;
+       }
+    }
+    public void onDeleteExperienceFiled(View v) {
+        if(counter_experiences>=1){
+            parentLinearLayoutExperience.removeView((View) v.getParent());
+            counter_experiences--;
+        }
     }
 
-    public void onDeleteExperienceFiled(View v) {
-        parentLinearLayoutExperience.removeView((View) v.getParent());
+
+String langSelected="";
+String niveuaLangselected="";
+
+
+public  void getLangueSelected(){
+
+       langSelected="";
+       niveuaLangselected="";
+    for(int i=0 ;i<=counter;i++) {
+        CardView card = (CardView) parentLinearLayout.getChildAt(i);
+        LinearLayout layout = (LinearLayout) card.getChildAt(0);
+        Spinner us_lang = (Spinner) layout.getChildAt(0);
+        Spinner us_niveau = (Spinner) layout.getChildAt(1);
+        niveuaLangselected = niveuaLangselected + us_niveau.getSelectedItem().toString() + "\n";
+        langSelected = langSelected + us_lang.getSelectedItem().toString() + "\n";
     }
+    Toast.makeText(context, "langue " + langSelected, Toast.LENGTH_SHORT).show();
+    Toast.makeText(context, "niveau " + niveuaLangselected, Toast.LENGTH_SHORT).show();
+}
+
+
+
+String Exper_title="";
+String Exper_Company="";
+String Exper_Start_Date="";
+String Exper_End_Date="";
+
+public void getExperiencesSelected(){
+
+    Exper_title="";
+    Exper_Company="";
+    Exper_Start_Date="";
+    Exper_End_Date="";
+    for(int i=0 ;i<=counter_experiences;i++) {
+        CardView card = (CardView) parentLinearLayoutExperience.getChildAt(i);
+        LinearLayout layout = (LinearLayout) card.getChildAt(1);
+
+        LinearLayout layout_title_and_company = (LinearLayout) layout.getChildAt(0);
+        EditText title = (EditText) layout_title_and_company.getChildAt(0);
+        EditText company = (EditText) layout_title_and_company.getChildAt(1);
+        Exper_title = Exper_title + title.getText().toString() + "\n";
+        Exper_Company = Exper_Company + company.getText().toString() + "\n";
+
+        LinearLayout layout_Date = (LinearLayout) layout.getChildAt(1);
+        EditText date_start = (EditText) layout_Date.getChildAt(0);
+        EditText date_end = (EditText) layout_Date.getChildAt(1);
+        Exper_Start_Date = Exper_Start_Date + date_start.getText().toString() + "\n";
+        Exper_End_Date = Exper_End_Date + date_end.getText().toString() + "\n";
+    }
+
+
+    Log.d("title" ,  Exper_title);
+    Log.d("company" ,  Exper_Company);
+    Log.d("start" ,  Exper_Start_Date);
+    Log.d("end" ,  Exper_End_Date);
+}
+
+
+/*********************************** End Experinces and Langueges Handler  ***********************************/
+
 }

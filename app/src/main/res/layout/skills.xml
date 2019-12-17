@@ -77,9 +77,14 @@
 
                             <TextView
                                 android:id="@+id/skills_selected"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="7dp" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:padding="13dp"
+                                android:textSize="11dp"
+                                android:layout_marginTop="7dp"
+                                android:textColor="@color/colorPrimaryDark"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -130,7 +135,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginRight="17dp"
                             android:layout_marginBottom="8dp"
-                            android:text="choisissez Vos languges "
+                            android:text="choisissez Vos Soft Skills "
                             android:textAllCaps="true"
                             android:textStyle="bold"
 
@@ -144,20 +149,23 @@
                             android:orientation="vertical">
 
                             <Button
-
                                 android:id="@+id/langue_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:background="@color/Verifcation_Button"
-                                android:text="Langues ?" />
+                                android:text="Soft skills  ?" />
 
                             <TextView
                                 android:id="@+id/langue_selected"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="7dp"
-                                android:text="your languges are :" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:padding="13dp"
+                                android:textSize="11dp"
+                                android:layout_marginTop="7dp"
+                                android:textColor="@color/colorPrimaryDark" />
 
                         </LinearLayout>
 
@@ -251,15 +259,16 @@
                         </LinearLayout>
 
                         <Button
-                            android:id="@+id/delete_button"
-                            android:layout_width="20dp"
+                            android:id="@+id/delete_firs_lang"
+                            android:layout_width="17dp"
                             android:layout_height="27dp"
                             android:layout_gravity="right"
-                            android:layout_marginRight="15dp"
-
                             android:layout_marginTop="5dp"
+
+                            android:layout_marginRight="15dp"
                             android:background="@drawable/ic_delete"
-                            android:gravity="left|center_vertical" />
+                            android:gravity="left|center_vertical"
+                             />
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
@@ -273,6 +282,17 @@
                     android:layout_marginBottom="5dp"
                     android:paddingLeft="5dp"
                     android:text="Ajouter Langue"
+                    android:textColor="#FFF" />
+                <Button
+                    android:id="@+id/getText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:text=" get text"
                     android:textColor="#FFF" />
 
             </LinearLayout>
@@ -417,6 +437,18 @@
                     android:layout_marginBottom="5dp"
                     android:paddingLeft="5dp"
                     android:text="Ajouter Experience"
+                    android:textColor="#FFF"
+                    />
+                <Button
+                    android:id="@+id/getExperiences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="show experiences selected"
                     android:textColor="#FFF"
                     />
 

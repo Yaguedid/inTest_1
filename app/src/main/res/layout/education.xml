@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,24 +22,25 @@
             android:layout_height="wrap_content"
 
             >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_weight="1"
-                >
-                <androidx.cardview.widget.CardView
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="3dp"
+                    android:padding="10dp"
                     card_view:cardBackgroundColor="#fff"
-                    card_view:cardUseCompatPadding="true"
                     card_view:cardCornerRadius="10dp"
                     card_view:cardElevation="3dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp"
-                    android:padding="10dp">
+                    card_view:cardUseCompatPadding="true">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -53,7 +54,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginRight="17dp"
                             android:layout_marginBottom="8dp"
-                            android:text="Diplome"
+                            android:text="Niveau D'etudes"
                             android:textAllCaps="true"
                             android:textStyle="bold"
 
@@ -108,10 +109,8 @@
                     </LinearLayout>
 
 
-
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
-
 
 
         </TableRow>
@@ -119,24 +118,24 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_weight="1"
-                >
-                <androidx.cardview.widget.CardView
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    card_view:cardBackgroundColor="#fff"
-                    card_view:cardUseCompatPadding="true"
-                    card_view:cardCornerRadius="10dp"
-                    card_view:cardElevation="3dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="3dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="3dp"
                     android:padding="10dp"
+                    card_view:cardBackgroundColor="#fff"
+                    card_view:cardCornerRadius="10dp"
+                    card_view:cardElevation="3dp"
+                    card_view:cardUseCompatPadding="true"
 
 
                     >
@@ -194,8 +193,129 @@
 
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="17dp"
+                        android:layout_weight="3"
+                        android:gravity="left"
+                        android:text="choisissez Vos Diplomes"
+                        android:textAllCaps="true"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/parent_linear_layout_dipolmes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="3dp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="#fff"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="3dp"
+                        app:cardUseCompatPadding="true">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="2"
+                                android:entries="@array/diplomes" />
+
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_marginRight="4dp"
+                                android:layout_weight="2"
+                                android:entries="@array/ecoles" />
+
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_marginRight="25dp"
+                                android:layout_weight="2"
+                                android:entries="@array/date_diplome" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/delete_firs_diplome"
+                            android:layout_width="23dp"
+                            android:layout_height="27dp"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="15dp"
+                            android:background="@drawable/ic_delete"
+                            android:gravity="left|center_vertical"
+                            android:onClick="onDeleteDiplome" />
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/add_field_dipolme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:text="Ajouter Diplomes"
+                    android:textColor="#FFF" />
+
+                <Button
+                    android:id="@+id/getText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:text=" get text"
+                    android:textColor="#FFF" />
+
+            </LinearLayout>
+
+        </TableRow>
+
 
     </TableLayout>
 
 
-</LinearLayout>
+</ScrollView>

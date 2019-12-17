@@ -27,6 +27,7 @@ public class TabsHolder  extends AppCompatActivity {
     private SharedPreferences userinfo;
     LinearLayout parentLinearLayout ;
     LinearLayout parentLinearLayoutExperience ;
+    LinearLayout parentLinearLayoutDiplomes ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,13 +127,27 @@ public class TabsHolder  extends AppCompatActivity {
     }
 
     public void onDelete(View v) {
-
+        if(tab_3.getInstance().counter>=1){
         parentLinearLayout.removeView((View) v.getParent());
-         Toast.makeText(mVar, "on delet", Toast.LENGTH_SHORT).show();
-         tab_3.getInstance().parentLinearLayout=parentLinearLayout;
+        tab_3.getInstance().counter--;
+         tab_3.getInstance().parentLinearLayout=parentLinearLayout;}
     }
     public void onDeleteExperienceFiled(View v) {
+        if(tab_3.getInstance().counter_experiences>=1){
         parentLinearLayoutExperience.removeView((View) v.getParent());
         tab_3.getInstance().parentLinearLayoutExperience=parentLinearLayoutExperience;
+        tab_3.getInstance().counter_experiences--;
+        }
     }
+
+    public void onDeleteDiplome(View v) {
+        if(tab_2.getInstance().counter_diplomes>=1){
+            parentLinearLayoutDiplomes.removeView((View) v.getParent());
+        tab_2.getInstance().parentLinearLayoutDiplomes=parentLinearLayoutDiplomes;
+        tab_2.getInstance().counter_diplomes--;
+        }
+    }
+
+
+
 }

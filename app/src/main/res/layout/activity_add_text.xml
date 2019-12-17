@@ -6,6 +6,7 @@
     android:layout_margin="5dp"
     android:orientation="vertical" >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal" >
@@ -43,4 +44,10 @@
         android:textColor="#FFF"
         android:text="Add Field"
         android:paddingLeft="5dp"/>
+
+    <Button
+        android:id="@+id/getText"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="get me text" />
 </LinearLayout>

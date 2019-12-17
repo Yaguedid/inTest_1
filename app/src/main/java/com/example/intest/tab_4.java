@@ -193,13 +193,9 @@ public class tab_4 extends Fragment {
                 if (boolindex.equals(keys.get(8)) || boolindex.equals(keys.get(9)))
                     tab_3.getInstance().FILED_VERIFICATION = true;
                 tab_3.getInstance().chekIfFiledEmpty();
-
-
                 if (boolindex.equals(keys.get(10)) || boolindex.equals(keys.get(11))) {
                     FILED_VERIFICATION = true;
-                    chekIfFiledEmpty();
-
-                }
+                    chekIfFiledEmpty(); }
 
             }
         }
@@ -210,18 +206,19 @@ public class tab_4 extends Fragment {
    You find the data that u want to send  to FireBase   Here
                  that's an exemple
  ++++++++++  +++++++++++ ++++++++++++++++ ++++++++++++++++++++++ ++++++++++++++++++++++++*/
-        for(String bool : resultkMap.values()){
-            if(bool.equals("false")) {
+
+     if(tab_2.getInstance().checkDiplome()) {
+        for(String bool : resultkMap.values()) {
+            if (bool.equals("false")) {
                 DATA_IS_INVALISD = true;
                 break;
             }
+        }
 
 
         }
         Log.d("gag",DATA_IS_INVALISD.toString());
         if(DATA_IS_INVALISD==false) {
-
-
 
             String domaineListString="",skillsListString="",langueListString="",offersListString="",PeriodListString="";
             for(String domaine :tab_2.getInstance().domainList)
@@ -232,7 +229,7 @@ public class tab_4 extends Fragment {
             {
                 skillsListString+=skill+"\n";
             }
-            for(String langue :tab_3.getInstance().langueList)
+            for(String langue :tab_3.getInstance().SoftSkillsList)
             {
                 langueListString+=langue+"\n";
             }

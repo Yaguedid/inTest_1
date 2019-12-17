@@ -148,6 +148,46 @@
         <item>langue maternelle</item>
     </string-array>
 
+    <string-array name="soft_skills">
+        <item>La résolution de problèmes</item>
+        <item>La confiance</item>
+        <item>La communication</item>
+        <item>La gestion du temps</item>
+        <item>La gestion du stress</item>
+        <item>La créativité</item>
+        <item>L’audace</item>
+        <item>La motivation</item>
+        <item>Vision, visualisation</item>
+        <item>La présence</item>
+        <item>Le sens du collectif</item>
+        <item>La curiosité</item>
+        <item>L’esprit d’entreprendre</item>
+        <item>L’intelligence émotionnelle</item>
+        <item>L’empathie</item>
+    </string-array>
+
+    <string-array name="diplomes">
+        <item>diplome</item>
+        <item>Technicien</item>
+        <item>Technicien Specialisé</item>
+        <item>Ingenieurs</item>
+    </string-array>
+
+    <string-array name="date_diplome">
+        <item>annee</item>
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+    </string-array>
+    <string-array name="ecoles">
+        <item>ecole</item>
+        <item>ENSA FES</item>
+        <item>FST FES</item>
+        <item>FEST MARRAKECH</item>
+    </string-array>
+
     <string name="title_activity_dashbord_navigation">DashbordNavigation</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
