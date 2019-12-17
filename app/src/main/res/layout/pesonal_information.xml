@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3EC2D5FD"
-    >
+    android:background="#3EC2D5FD">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="7dp">
+
+        android:orientation="vertical">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -21,301 +21,340 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="7dp">
 
-                >
+                <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
 
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:orientation="vertical">
+                    android:padding="10dp"
+                    card_view:cardBackgroundColor="#fff"
+                    card_view:cardCornerRadius="10dp"
+                    card_view:cardElevation="3dp"
+                    card_view:cardUseCompatPadding="true">
 
-                    <ImageView
-
-                        android:id="@+id/user_ImageId"
-                        android:layout_width="300dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         />
+                        android:layout_weight="1"
+                        android:background="@drawable/gradientbackground"
+                        android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/chooseImg_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="update image"
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/user_ImageId"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/upload_image_icon" />
 
-                        />
+                        <TextView
+                            android:id="@+id/fullNameUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
 
+                            android:text="Wiliam Snoe"
+                            android:textColor="#fff"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
 
-                </LinearLayout>
+                        <Button
+                            android:id="@+id/chooseImg_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/gradientbackground"
+                            android:drawableLeft="@drawable/upload_image_icon"
+                            android:drawablePadding="10dp"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:paddingLeft="5dp"
+                            android:text="Choisir image"
+                            android:textAlignment="center"
+                            android:textAllCaps="false"
+                            android:textColor="#455454"
+                            android:textSize="15dp"
 
+                            />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
             </TableRow>
 
             <TableRow
-
+                android:layout_margin="5dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
                     android:layout_margin="7dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
                     >
 
                     <TextView
                         android:id="@+id/naameFiled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Prénom"
+                        android:text="Prenom"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:textSize="15dp"
+                        android:layout_weight="20"
                         android:textColor="@color/colorPrimaryDark"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginRight="17dp"
-
                         />
 
                     <EditText
                         android:id="@+id/user_name"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textStyle="italic"
+                        android:layout_weight="70"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        />
-
-
+                        android:textSize="15dp"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"/>
 
                 </LinearLayout>
 
-            </TableRow>            <TableRow
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_margin="7dp"
-                >
-
-                <TextView
-                    android:id="@+id/lasnameFiled"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nom"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginRight="17dp"
-
-                    />
-
-                <EditText
-                    android:id="@+id/user_lastName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:textStyle="italic"
-                    />
-
-
-            </LinearLayout>
-
-        </TableRow>
+            </TableRow>
 
             <TableRow
-
+                android:background="#fff"
+                android:layout_margin="7dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
                     android:layout_margin="7dp"
-                    >
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lasnameFiled"
+                        android:text="Nom"
+                        android:layout_width="0dp"
+                        android:layout_weight="20"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <EditText
+                        android:id="@+id/user_lastName"
+                        android:layout_width="0dp"
+                        android:layout_weight="80"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:textSize="15dp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"/>
+                </LinearLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="5dp"
+                android:background="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/emalFiled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="17dp"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:layout_marginBottom="8dp"
                         android:text="émail"
-
-                        />
+                        android:layout_width="0dp"
+                        android:layout_weight="20"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorPrimaryDark" />
 
                     <EditText
                         android:id="@+id/user_email"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="80"
                         android:layout_height="wrap_content"
-                        android:textStyle="italic"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:inputType="textEmailAddress"
-                        />
+                        android:textSize="15dp" />
 
-
-
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"/>
                 </LinearLayout>
 
             </TableRow>
+
             <TableRow
-
+                android:layout_margin="5dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
                     android:layout_margin="7dp"
-                    >
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/phoneFiled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text=" N° télephone"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginRight="17dp"
-                        android:textColor="@color/colorPrimaryDark"
-                        />
+                        android:layout_width="0dp"
+                        android:layout_weight="30"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorPrimaryDark"/>
 
                     <EditText
                         android:id="@+id/user_phone"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="50"
                         android:layout_height="wrap_content"
-                        android:textStyle="italic"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:inputType="number"
-                        />
-
-
+                        android:textSize="15dp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"/>
 
                 </LinearLayout>
 
             </TableRow>
 
             <TableRow
-
+                android:layout_margin="5dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
                     android:layout_margin="7dp"
-                    >
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/cityFiled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginRight="17dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_weight="1"
                         android:text="Villes où vous\n êtes disponible"
-                        android:textColor="@color/colorPrimaryDark"
-
-
-                        />
+                        android:layout_width="0dp"
+                        android:layout_weight="40"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorPrimaryDark"/>
 
 
                     <Spinner
                         android:id="@+id/user_city"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:minWidth="40dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_weight="1"
-                        />
+                        android:layout_weight="50" />
 
-
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="10"/>
                 </LinearLayout>
 
             </TableRow>
+
             <TableRow
-
+                android:layout_margin="5dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
                     android:layout_margin="7dp"
-                    >
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/birthdayFiled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:textColor="@color/colorPrimaryDark"
                         android:text="Date de \nNaissance"
-
-                        />
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/colorPrimaryDark"/>
 
 
                     <Spinner
                         android:id="@+id/day_birth_id"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:textSize="11dp"/>
+
                     <Spinner
                         android:id="@+id/month_birth_id"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:layout_weight="2" />
+                        android:layout_weight="2"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:textColor="#000"
+                        android:textSize="5dp"/>
+
                     <Spinner
                         android:id="@+id/year_birth_id"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-
-                        android:layout_weight="2"
                         android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="2"
+                        android:textColor="#000"
+                        android:textSize="11dp"/>
 
 
                 </LinearLayout>
 
             </TableRow>
-
 
 
         </TableLayout>

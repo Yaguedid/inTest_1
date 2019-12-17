@@ -45,6 +45,7 @@ public class tab_3  extends Fragment {
     Boolean FILED_VERIFICATION=false;
 
     public LinearLayout parentLinearLayout;
+    public LinearLayout parentLinearLayoutExperience;
 
 
     @Override
@@ -103,21 +104,29 @@ public class tab_3  extends Fragment {
 
         });
 
+
+        /*********************************** lang & experiences*************************************************/
+
         parentLinearLayout = (LinearLayout) root.findViewById(R.id.parent_linear_layout);
-        Button add =root.findViewById(R.id.add_field_button);
-        final Button delete =root.findViewById(R.id.delete_button);
-        add.setOnClickListener(new View.OnClickListener() {
+        parentLinearLayoutExperience = (LinearLayout) root.findViewById(R.id.parent_linear_layout_Experience);
+
+        Button add_languge =root.findViewById(R.id.add_field_button);
+        Button add_Experience =root.findViewById(R.id.add_Experience_button);
+
+        add_languge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onAddField();
             }
         });
-        delete.setOnClickListener(new View.OnClickListener() {
+        add_Experience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onDelete(v);
+                onAddExperienceFiled();
             }
         });
+
+
 
         return root;
     }
@@ -340,5 +349,17 @@ public class tab_3  extends Fragment {
 
     public void onDelete(View v) {
         parentLinearLayout.removeView((View) v.getParent());
+    }
+
+    public void onAddExperienceFiled() {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        final View rowView = inflater.inflate(R.layout.filed_exeriences, null);
+        parentLinearLayoutExperience.addView(rowView, parentLinearLayoutExperience.getChildCount() - 1);
+        TabsHolder.getInstance().parentLinearLayoutExperience=parentLinearLayoutExperience;
+        // Add the new row before the add field but.addView(rowView, parentLinearLayout.getChildCount() - 1);
+    }
+
+    public void onDeleteExperienceFiled(View v) {
+        parentLinearLayoutExperience.removeView((View) v.getParent());
     }
 }

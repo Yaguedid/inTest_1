@@ -16,8 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".info_employer"></activity>
-        <activity android:name=".navigation.addText"></activity>
+        <activity android:name=".navigation.addText">
+
+        </activity>
+
         <activity
             android:name=".navigation.DashbordNavigation"
             android:label="@string/title_activity_dashbord_navigation"
@@ -28,9 +30,9 @@
             android:value="ca-app-pub-8266359058019254~3805818182" />
 
         <activity android:name=".function.SendSms" />
-        <activity
-            android:name=".CV_Display"
-            android:theme="@style/AppTheme2" />
+        <activity android:name=".CV_Display"
+            android:theme="@style/AppTheme2"
+            ></activity>
         <activity
             android:name=".DashbordStudent"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -46,7 +48,9 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".TabsHolder"
-            android:theme="@style/AppTheme2"></activity>
+            android:theme="@style/AppTheme2" >
+
+        </activity>
         <activity
             android:name=".VeryFirstActivity"
             android:theme="@style/AppTheme2">

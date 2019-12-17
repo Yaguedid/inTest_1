@@ -127,7 +127,7 @@ public class tab_1 extends Fragment  implements TextWatcher {
         arr_day.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Daybirth.setAdapter(arr_day);
 
-        ArrayAdapter arr_month = new ArrayAdapter(this.getActivity(),android.R.layout.simple_list_item_1,monthsTable);
+        ArrayAdapter arr_month = new ArrayAdapter(this.getActivity(),R.layout.spiner_list,monthsTable);
         arr_month.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Monthbirth.setAdapter(arr_month);
 

@@ -138,9 +138,16 @@
         <item>arabe</item>
         <item>anglais</item>
         <item>francais</item>
-
-
+        <item>Espagniol</item>
     </string-array>
+
+    <string-array name="niveux_langue">
+        <item>Débutant</item>
+        <item>Intérmediaire</item>
+        <item>Bien</item>
+        <item>langue maternelle</item>
+    </string-array>
+
     <string name="title_activity_dashbord_navigation">DashbordNavigation</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
