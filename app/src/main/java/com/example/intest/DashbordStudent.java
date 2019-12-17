@@ -72,6 +72,15 @@ public class DashbordStudent extends AppCompatActivity implements MyRecyclerView
     /*********************To show******************/
     List<String> OfferTitlesList ;
     List<String> OfferAverageList ;
+    public List<String> PicturesList;
+    public List<String> CitiesList;
+    public List<String> PaidOrNotList;
+    public List<String> StartsAtList;
+    public List<String> ReleaseDateList;
+    public List<String> PeriodeList;
+    public List<String> OfferPostersList;
+    public List<String> CompanyNameList;
+
     List<String> OfferIdsList;
     /***************************************************/
 
@@ -85,6 +94,14 @@ public class DashbordStudent extends AppCompatActivity implements MyRecyclerView
         instantiateViews();
         setMyNavigatinBar();
         database = FirebaseDatabase.getInstance();
+        PicturesList=new ArrayList<String>();
+        CitiesList=new ArrayList<String>();
+        PaidOrNotList=new ArrayList<String>();
+        StartsAtList=new ArrayList<String>();
+        ReleaseDateList=new ArrayList<String>();
+        PeriodeList=new ArrayList<String>();
+        OfferPostersList=new ArrayList<String>();
+        CompanyNameList=new ArrayList<String>();
         getCvFromFirebase();
     }
     private void setAdds() {
@@ -166,6 +183,176 @@ public class DashbordStudent extends AppCompatActivity implements MyRecyclerView
                     OfferAverageList=new ArrayList<>(MatchingJobsAndAverage.values());
                     OfferTitlesList=new ArrayList<>(MatchingJobsIdsAndTitles.values());
                     OfferIdsList=new ArrayList<>(MatchingJobsIdsAndTitles.keySet());
+                    threadToForceWaitForOfferPosters(OfferIdsList.size());
+
+                }
+
+            }
+        });
+
+
+    }
+    public void threadToForceWaitForOfferPosters(final int size)
+    {
+        getOfferPosters(OfferIdsList);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                if(OfferPostersList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForCompanyIcon(size);
+                }
+
+            }
+        };
+
+        thread.start();
+    }
+    public void threadToForceWaitForCompanyIcon(final int size)
+    {
+        getCompanyIcon(OfferPostersList);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                if(PicturesList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForCompanyName(size);
+                }
+
+            }
+        };
+
+        thread.start();
+    }
+    public void threadToForceWaitForCompanyName(final int size)
+    {
+        getOfferCompanyName(OfferPostersList);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                if(CompanyNameList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForOfferCity(size);
+                }
+
+            }
+        };
+
+        thread.start();
+    }
+    public void threadToForceWaitForOfferCity(final int size)
+    {
+        getOfferCity(OfferIdsList);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                if(CitiesList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForOfferPaidOrNot(size);
+                }
+
+            }
+        };
+
+        thread.start();
+    }
+    public void threadToForceWaitForOfferPaidOrNot(final int size)
+    {
+        getOfferPaidOrNot(OfferIdsList);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                if(PaidOrNotList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForOfferReleaseDate(size);
+                }
+
+            }
+        };
+
+        thread.start();
+    }
+    public void threadToForceWaitForOfferReleaseDate(final int size)
+    {
+        getOfferReleaseDate(OfferIdsList);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                if(ReleaseDateList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForOfferStartsAt(size);
+                }
+
+            }
+        };
+
+        thread.start();
+    }
+    public void threadToForceWaitForOfferStartsAt(final int size)
+    {
+        getOfferStartsAt(OfferIdsList);
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+
+                if(StartsAtList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
+                    threadToForceWaitForOfferPeriode(size);
+                }
+
+            }
+        };
+
+        thread.start();
+    }
+    public void threadToForceWaitForOfferPeriode(final int size)
+    {
+        getOfferPeriode(OfferIdsList);
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                if(PeriodeList.size()<size)
+                {
+                    handler.post(this);
+
+                }else
+                {
                     setRecycle();
                 }
 
@@ -173,9 +360,138 @@ public class DashbordStudent extends AppCompatActivity implements MyRecyclerView
         });
 
 
-
-
     }
+    public void getOfferPosters(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Offers").child(id).child("Poster Id");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    OfferPostersList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getCompanyIcon(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Users").child(id).child("CompanyLogo");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    PicturesList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getOfferCompanyName(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Users").child(id).child("CompanyName");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    CompanyNameList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getOfferCity(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Offers").child(id).child("City");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    CitiesList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getOfferPaidOrNot(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Offers").child(id).child("Paid");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    PaidOrNotList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getOfferReleaseDate(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Offers").child(id).child("DateRelease");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    ReleaseDateList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+
+    public void getOfferStartsAt(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Offers").child(id).child("StartDate");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    StartsAtList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+    public void getOfferPeriode(List<String> ListOfIds)
+    {
+        for(String id:ListOfIds)
+        {
+            myRef=database.getReference("Offers").child(id).child("Periode");
+            myRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+                    PeriodeList.add(value);
+                }
+                @Override
+                public void onCancelled(DatabaseError error) {}
+            });
+        }
+    }
+
+
     private void getOffersIds()
     {
         GetOffersIds r= new GetOffersIds(domainList,skillsList,reqList,typeList,citiesList,periodeList);
@@ -236,7 +552,8 @@ public class DashbordStudent extends AppCompatActivity implements MyRecyclerView
     {
         RecyclerView recyclerView = findViewById(R.id.errorRy);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapterForListMatchingOffers(this,OfferTitlesList,OfferAverageList);
+        adapter = new MyRecyclerViewAdapterForListMatchingOffers(this,OfferTitlesList,OfferAverageList,PicturesList,CitiesList
+        ,PaidOrNotList,StartsAtList,ReleaseDateList,PeriodeList,CompanyNameList);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 

@@ -342,11 +342,15 @@ OfferDetailtsView=findViewById(R.id.offerBody);
                 offerSettingsRef=database.getReference("Offer City").child(city).child("Offer Id"+offerid);
                 offerSettingsRef.setValue(offerid);
 
+                offerSettingsRef=database.getReference("Offers").child(offerid).child("City");
+                offerSettingsRef.setValue(city);
             }
             for(String period:periodeList)
             {
                 offerSettingsRef=database.getReference("Offer Period").child(period).child("Offer Id"+offerid);
                 offerSettingsRef.setValue(offerid);
+                offerSettingsRef=database.getReference("Offers").child(offerid).child("Periode");
+                offerSettingsRef.setValue(period);
 
             }
             /**************/
